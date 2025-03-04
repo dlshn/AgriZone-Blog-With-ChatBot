@@ -1,0 +1,115 @@
+/* Navbar Styles */
+.navbar {
+    background: rgba(89, 170, 143, 0.9); /* Semi-transparent */
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 12px 20px;
+    transition: all 0.3s ease-in-out;
+}
+
+/* Navbar Hover Effect */
+.navbar:hover {
+    background: rgba(120, 220, 190, 0.9);
+}
+
+/* Logo */
+.logo {
+    width: 60px; /* Default size */
+    height: auto;
+    border-radius: 50%;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+}
+
+/* Logo Hover Effect */
+.logo:hover {
+    transform: scale(1.1);
+    opacity: 0.9;
+}
+.navbar-nav{
+    margin-right: 80px;
+}
+/* Navbar Links */
+.navbar-nav .nav-link {
+    color: #ffffff;
+    padding: 10px 15px;
+    font-size: 18px;
+    font-weight: bold;
+    transition: color 0.3s ease-in-out;
+}
+
+/* Hover Effect for Links */
+.navbar-nav .nav-link:hover {
+    color: #007bff; /* Bootstrap primary blue */
+}
+
+/* Default Navbar Collapse Style */
+.navbar-collapse {
+    /* background: rgba(255, 255, 255, 0.9); Light transparent background */
+    padding: 10px 15px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.4s ease-in-out;
+}
+
+/* Navbar Collapse - When Open */
+.navbar-collapse.show {
+    transform: scaleY(1);
+    opacity: 1;
+}
+
+/* Navbar Collapse - When Closed */
+.navbar-collapse.collapsing {
+    transform: scaleY(0);
+    opacity: 0;
+}
+
+/* Make Navbar Collapse Full Width on Mobile */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        width: 90%;
+        margin: auto;
+        text-align: center;
+        background: rgba(255, 255, 255, 0.95); /* More visible background */
+    }
+
+    /* Add border-radius for a card effect */
+    .navbar-nav {
+        border-radius: 10px;
+        padding: 10px;
+        margin: 0;
+    }
+
+    /* Nav Links Styling */
+    .nav-link {
+        display: block;
+        padding: 12px;
+        font-size: 16px;
+        color: #333;
+        font-weight: 500;
+        transition: color 0.3s ease-in-out, background 0.3s ease-in-out;
+    }
+
+    /* Nav Link Hover Effect */
+    .nav-link:hover {
+        background: #f8f9fa;
+        color: #007bff;
+        border-radius: 5px;
+    }
+}
+
+/* Extra Small Screens (Mobile) */
+@media (max-width: 576px) {
+    .navbar-collapse {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .nav-link {
+        font-size: 16px;
+    }
+    .logo {
+        width: 40px;
+    }
+}
+
