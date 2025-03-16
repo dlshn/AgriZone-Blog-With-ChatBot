@@ -1,6 +1,6 @@
 /* Navbar Styles */
 .navbar {
-    background: rgba(89, 170, 143, 0.9); /* Semi-transparent */
+    background: rgba(200, 255, 237, 0.9); /* Semi-transparent */
     backdrop-filter: blur(10px);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     padding: 12px 20px;
@@ -14,7 +14,7 @@
 
 /* Logo */
 .logo {
-    width: 60px; /* Default size */
+    width: 50px; /* Default size */
     height: auto;
     border-radius: 50%;
     box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.3);
