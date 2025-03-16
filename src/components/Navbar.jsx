@@ -2,14 +2,16 @@ import React from 'react';
 import logo from "../img/AgriZone.png";
 import "../styles/Navbar.css"; // Ensure this file is correctly linked
 
+import {Link} from "react-router-dom";
+
 export const Navbar = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light">
       <div className="container-fluid px-5">
         {/* Logo */}
-        <a className="navbar-brand" href="#">
-          <img src={logo} className="logo" alt="AgriZone Logo" />
-        </a>
+        {/* <a className="" href="#"> */}
+          <Link to="/" className='navbar-brand'><img src={logo} className="logo" alt="AgriZone Logo" /></Link>
+        {/* </a> */}
 
         {/* Toggle Button for Mobile */}
         <button 
@@ -26,16 +28,18 @@ export const Navbar = () => {
 
         {/* Navbar Links */}
         <div className="collapse navbar-collapse" id="navbarNav">
-          <ul className="navbar-nav ms-auto mb-2 mb-lg-0 border">
+          <ul className="navbar-nav ms-auto mb-2 mb-lg-0">
             <li className="nav-item">
-              <a className="nav-link"  href="#">Home</a>
+              {/* <a className="nav-link"  href="#">Home</a> */}
+              <Link to="/" className='nav-link'>Home</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Features</a>
+              <Link to="/Features" className='nav-link'>Features</Link>
             </li>
             <li className="nav-item">
-              <a className="nav-link" href="#">Pricing</a>
+              <Link to="/Services" className='nav-link'>Services</Link>
             </li>
+ 
           </ul>
         </div>
       </div>
