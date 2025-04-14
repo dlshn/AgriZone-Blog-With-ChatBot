@@ -2,7 +2,6 @@ body {
   background-color: #f8f9fa; /* Light gray background */
   color: #333; /* Dark text color */
   font-family: 'Arial', sans-serif;
-  margin: 0;
-  padding: 0;
   overflow-x: hidden; /* Prevent horizontal scroll */
+  margin: 0; /* Remove default margin */
 }
