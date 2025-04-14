@@ -3,6 +3,7 @@ import Typewriter from "typewriter-effect";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Hero.css"; // Custom CSS file for additional styling
 import Article from "../data/article";
+import { Link } from "react-router-dom";
 
 export const Hero = () => {
   return (
@@ -30,9 +31,8 @@ export const Hero = () => {
 
             Join our community of passionate farmers and agriculture lovers. Let’s grow together! 🚜🌿
             </p>
-            <a href="#blog" className="btn btn-success btn-lg">
-              Read More
-            </a>
+            
+            <Link to="/Register" className="btn btn-success btn-lg ms-3">Register and Write Blog</Link>
           </div>
 
           {/* Right box */}
