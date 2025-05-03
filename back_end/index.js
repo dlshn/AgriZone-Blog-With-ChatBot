@@ -18,7 +18,7 @@ app.post('/api/chat', async (req, res) => {
         const model = genAI.getGenerativeModel({
             model: 'gemini-1.5-pro',
             generationConfig: {
-                maxOutputTokens: 2000,
+                maxOutputTokens: 512,
                 temperature: 0.9,
               }
         });
@@ -26,7 +26,7 @@ app.post('/api/chat', async (req, res) => {
             history: [
               {
                 role: 'user',
-                parts: [{ text: 'You are an agriculture assistant. Only give farming, gardening, and agricultural-related solutions.please try to use simple English for response' }],
+                parts: [{ text: 'You are an agriculture assistant. Only give farming, gardening, and agricultural-related solutions.please try to use simple English for response and under 150 words' }],
               },
               {
                 role: 'model',
@@ -38,7 +38,7 @@ app.post('/api/chat', async (req, res) => {
         const result = await chat.sendMessage(message);
         const response = await result.response;
         const text = response.text();
-        res.json({ reply:text + "**-AgriZone**" });   
+        res.json({ reply:text + "\n\n**-AgriZone**" });
 
     }catch (error) {
         console.error("Error:", error.message);

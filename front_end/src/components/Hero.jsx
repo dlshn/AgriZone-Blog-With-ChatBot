@@ -64,7 +64,7 @@ export const Hero = () => {
               <input
               type="text"
               className="chatbot"
-              placeholder="Ask anything"
+              placeholder="Ask anything about agriculture..."
               onChange={(e) => setMessage(e.target.value)}
               value={message}
               />
