@@ -1,10 +1,11 @@
-create/delete/search/update
-const BlogSchema = require('../models/BlogModel'); // Assuming you have a Blog model defined
+// create/delete/search/update
+const BlogSchema = require('../model/blogSchema'); 
 
 const createBlog = (req, res) => {
     const { title, content, image, by } = req.body;
+    console.log(req.body);
 
-    if (!title || !content || !Image || !by) {
+    if (!title || !content || !image || !by) {
         return res.status(400).json({ message: 'All fields are required' });
     }
 

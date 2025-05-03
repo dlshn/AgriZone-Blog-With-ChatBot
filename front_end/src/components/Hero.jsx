@@ -54,7 +54,7 @@ export const Hero = () => {
             Join our community of passionate farmers and agriculture lovers. Let’s grow together! 🚜🌿
             </p>
             
-            <Link to="/Register" className="btn btn-success btn-lg ms-3">Register and Write Blog</Link>
+            <Link to="/CreateArticle" className="btn btn-success btn-lg ms-3">Register and Write Blog</Link>
           </div>
 
           {/* Right box */}
