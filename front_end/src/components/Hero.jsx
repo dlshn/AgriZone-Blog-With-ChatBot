@@ -1,11 +1,33 @@
-import React from "react";
+import React, {useState} from "react";
 import Typewriter from "typewriter-effect";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Hero.css"; // Custom CSS file for additional styling
 import Article from "../data/article";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import ReactMarkdown from "react-markdown";
+
+
 
 export const Hero = () => {
+  const [message, setMessage] = useState("");
+  const [botResponse, setBotResponse] = useState("");
+  const [loading, setLoading] = useState(false);
+
+  const handleAsk = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.post("http://localhost:5000/api/chat", {
+        message: message,
+      });
+      setBotResponse(response.data.reply);
+    } catch (error) {
+      console.error("Error:", error.message);
+      setBotResponse("Failed to get response from the bot.");
+    }
+    setMessage(""); // Clear the input field after sending the message
+    setLoading(false);
+  }
   return (
     <section className="hero">
       <div className="container d-flex align-items-center text-center ">
@@ -39,9 +61,26 @@ export const Hero = () => {
           <div className="col-12 col-sm-6 right-box ">
             <h1>Chatbot</h1>
             <div className="">
-              <input type="text" className="chatbot" placeholder="Ask anything" />
+              <input
+              type="text"
+              className="chatbot"
+              placeholder="Ask anything"
+              onChange={(e) => setMessage(e.target.value)}
+              value={message}
+              />
             </div>
-            <button className="btn btn-primary mt-4">Ask</button>
+            <button className="btn btn-primary mt-4" onClick={handleAsk}>Ask</button>
+
+            {loading ? (
+              <div className="mt-3 p-3 border rounded bg-light">
+                <strong>Bot:</strong> ⏳ Thinking...
+              </div>
+            ) : botResponse && (
+              <div className="mt-3 p-3 border rounded bg-light">
+                <strong>Bot:</strong><ReactMarkdown>{botResponse}</ReactMarkdown>
+              </div>
+            )}
+
           </div>
 
         </div>
