@@ -3,7 +3,7 @@ import React,{useState} from 'react'
 
 const CreateArticle = () => {
     const [title, setTitle] = useState("");
-    // const [image, setImage] = useState("");
+    const [image, setImage] = useState("");
     const [content, setContent] = useState("");
 
     // const handleImageChange = (e) => {
@@ -20,10 +20,14 @@ const CreateArticle = () => {
     // }
     const handleSubmit = async (e) => {
         e.preventDefault();
-        await axios.post("http://localhost:5000/api/article/create", {
-            title: title,
-            content: content,
-            // image: image
+        const formData = new FormData();
+        formData.append("title", title);
+        formData.append("content", content);
+        formData.append("image", image); // file object, not base64
+        await axios.post("http://localhost:5000/api/article/create",formData, {
+            headers: {
+                "Content-Type": "multipart/form-data",
+            }
         })
         .then((response) => {
             console.log(response.data);
@@ -36,6 +40,10 @@ const CreateArticle = () => {
             console.error("Error:", error.message);
             alert("Failed to create article");
         });
+    }
+
+    const handleImageChange = (e) => {
+        setImage(e.target.files[0]);
     }
 
 
@@ -53,7 +61,7 @@ const CreateArticle = () => {
         </div>
         <div className="mb-3">
             <label htmlFor="image" className="form-label">Image</label>
-            {/* <input type="file" accept="image/*" onChange={handleImageChange} /> */}
+            <input type="file" accept="image/*" onChange={handleImageChange} />
         </div>
         <button type="submit" className="btn btn-primary">Submit</button>
     </form>
