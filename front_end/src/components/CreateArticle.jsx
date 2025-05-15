@@ -6,47 +6,50 @@ const CreateArticle = () => {
     const [image, setImage] = useState("");
     const [content, setContent] = useState("");
 
-    // const handleImageChange = (e) => {
-    //     const file = e.target.files[0];
-    //     const reader = new FileReader();
-    //     reader.onloadend = () => {
-    //         setImage(reader.result); //set base64 string
-    //     };
-    //     if (file) {
-    //         reader.readAsDataURL(file);
-    //     } else {
-    //         setImage(null);
-    //     }
-    // }
+    
+
+    const handleImageChange = (e) => {
+        
+        const file = e.target.files[0];
+        const formData = new FormData();
+        formData.append('image', file);
+
+        fetch('http://localhost:5000/upload', {
+            method: 'POST',
+            body: formData,
+        })
+            .then(res => res.json())
+            .then(data => {
+            console.log('Image URL:', data.imageUrl);
+            setImage(data.imageUrl); // Set the image URL in state
+            })
+            .catch(err => console.error('Upload failed', err));
+        }
+
     const handleSubmit = async (e) => {
         e.preventDefault();
-        const formData = new FormData();
-        formData.append("title", title);
-        formData.append("content", content);
-        formData.append("image", image); // file object, not base64
-        await axios.post("http://localhost:5000/api/article/create",formData, {
-            headers: {
-                "Content-Type": "multipart/form-data",
-            }
-        })
-        .then((response) => {
+
+        if (!image) {
+            alert("Please upload an image first");
+            return;
+        }
+
+        try {
+            const response = await axios.post("http://localhost:5000/api/article/create", {
+            title,
+            content,
+            image
+            });
             console.log(response.data);
             alert("Article Created Successfully");
             setTitle("");
             setContent("");
-            // setImage("");
-        })
-        .catch((error) => {
+            setImage("");
+        } catch (error) {
             console.error("Error:", error.message);
             alert("Failed to create article");
-        });
-    }
-
-    const handleImageChange = (e) => {
-        setImage(e.target.files[0]);
-    }
-
-
+        }
+    };
 
   return (
     <>

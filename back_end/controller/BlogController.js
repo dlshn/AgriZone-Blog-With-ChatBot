@@ -2,14 +2,13 @@
 const BlogSchema = require('../model/blogSchema'); 
 
 const createBlog = async (req, res) => {
-    const { title, content } = req.body;
-    const imageUrl = req.file.path; // Cloudinary URL ******
+    const { title, content, image } = req.body;
 
-    if (!title || !content || !image || !by) {
+    if (!title || !content || !image) {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
-    const newBlog = new BlogSchema({ title, content, image: imageUrl }); 
+    const newBlog = new BlogSchema({ title, content, image }); 
     // by before should set using authentication middleware
 
     await newBlog.save()
