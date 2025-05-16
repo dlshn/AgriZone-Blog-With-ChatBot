@@ -1,5 +1,5 @@
 // create/delete/search/update
-const BlogSchema = require('../model/blogSchema'); 
+const BlogSchema = require('../model/blogSchema');
 
 const createBlog = async (req, res) => {
     const { title, content, image } = req.body;
@@ -24,5 +24,18 @@ const getAllArticles = async (req, res) => {
     }
 }
 
+const getArticleById = async (req, res) => {
+    const { id } = req.params;
+    try {
+        const article = await BlogSchema.findById(id);
+        if (!article) {
+            return res.status(404).json({ message: 'Article not found' });
+        }
+        res.status(200).json(article);
+    } catch (error) {
+        res.status(500).json({ message: 'Error fetching article', error });
+    }
+}
 
-module.exports = {createBlog, getAllArticles};
+
+module.exports = {createBlog, getAllArticles, getArticleById};

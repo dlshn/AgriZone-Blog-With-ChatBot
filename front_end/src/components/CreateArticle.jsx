@@ -1,5 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
+import "../styles/CreateArticle.css";
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const CreateArticle = () => {
   const [title, setTitle] = useState("");
@@ -59,23 +61,30 @@ const CreateArticle = () => {
 
   return (
     <>
-      <form onSubmit={handleSubmit}>
-        <div className="mb-3">
-          <label htmlFor="title" className="form-label">Title</label>
-          <input type="text" className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title" required />
+     <div className='container '>
+      <div className="row d-flex align-items-center flex-column">
+        <div className='col-12 col-sm-6 col-md-8 col-lg-8 p-5 create-article'>
+          <h2 className='text-success text-center'>Create Article</h2>
+          <form onSubmit={handleSubmit}>
+            <div className="mb-3">
+              <label htmlFor="title" className="form-label fs-5">Title</label>
+              <input type="text" className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title" required />
+            </div>
+            <div className="mb-3">
+              <label htmlFor="content" className="form-label fs-5">Content</label>
+              <textarea className="form-control" rows="5" value={content} onChange={(e) => setContent(e.target.value)} placeholder="Write your article here..." required></textarea>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="image" className="form-label fs-5">Image</label>
+              <input type="file" accept="image/*" onChange={handleImageChange} required />
+            </div>
+            <button type="submit" className="btn btn-success" disabled={isUploading}>
+              {isUploading ? "Uploading..." : "Submit"}
+            </button>
+          </form>
         </div>
-        <div className="mb-3">
-          <label htmlFor="content" className="form-label">Content</label>
-          <textarea className="form-control" rows="5" value={content} onChange={(e) => setContent(e.target.value)} placeholder="Write your article here..." required></textarea>
-        </div>
-        <div className="mb-3">
-          <label htmlFor="image" className="form-label">Image</label>
-          <input type="file" accept="image/*" onChange={handleImageChange} required />
-        </div>
-        <button type="submit" className="btn btn-primary" disabled={isUploading}>
-          {isUploading ? "Uploading..." : "Submit"}
-        </button>
-      </form>
+      </div>
+     </div>
     </>
   );
 };

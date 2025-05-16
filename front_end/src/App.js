@@ -5,6 +5,7 @@ import Home from './Home';
 import CreateArticle from './components/CreateArticle';
 import { Register } from './components/Register';
 import {Article} from './components/Article';
+import { FullArticle } from './components/FullArticle';
 import { Routes, Route } from 'react-router-dom';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
         <Route path="/Register" element={<Register />} />
         <Route path="/CreateArticle" element={<CreateArticle />} />
         <Route path="/Article" element={<Article />} />
+        <Route path="/Article/:id" element={<FullArticle />} />
         
       </Routes>
     </div>

@@ -10,7 +10,7 @@ router.post('/upload', upload.single('image'), (req, res) => {
     res.json({ imageUrl });
 });
 router.get('/getAll', BlogController.getAllArticles);
-// router.get('/getById/:id', BlogController.getBlogById);
+router.get('/getById/:id', BlogController.getArticleById);
 // router.put('/update/:id', BlogController.updateBlog);
 // router.delete('/delete/:id', BlogController.deleteBlog);
 // router.get('/search/:query', BlogController.searchBlogs);

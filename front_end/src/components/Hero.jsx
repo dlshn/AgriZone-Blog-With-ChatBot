@@ -68,7 +68,7 @@ export const Hero = () => {
               value={message}
               />
             </div>
-            <button className="btn btn-primary mt-4" onClick={handleAsk}>Ask</button>
+            <button className="btn btn-success mt-4" onClick={handleAsk}>Ask</button>
 
             {loading ? (
               <div className="mt-3 p-3 border rounded bg-light">
