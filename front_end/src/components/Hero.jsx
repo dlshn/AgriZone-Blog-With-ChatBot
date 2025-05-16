@@ -2,7 +2,6 @@ import React, {useState} from "react";
 import Typewriter from "typewriter-effect";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/Hero.css"; // Custom CSS file for additional styling
-import Article from "../data/article";
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
@@ -69,7 +68,7 @@ export const Hero = () => {
               value={message}
               />
             </div>
-            <button className="btn btn-primary mt-4" onClick={handleAsk}>Ask</button>
+            <button className="btn btn-success mt-4" onClick={handleAsk}>Ask</button>
 
             {loading ? (
               <div className="mt-3 p-3 border rounded bg-light">
@@ -85,19 +84,7 @@ export const Hero = () => {
 
         </div>
       </div>
-      <div className="container articles">
-        <h3 className="text-center">Latest articles</h3>
-        <div className="articles-scroll"> {/* Added a new div to enable scrolling */}
-          {Article.map((article) => (
-            <div key={article.id} className="article-box">
-              <h3 className="article-title">{article.title}</h3>
-              <img src={article.Image} alt={article.title} className="article-img" />
-              <p className="article-content">{article.content}</p>
-              <p className="article-date">{article.date}</p>
-            </div>
-          ))}
-        </div>
-      </div>
+      
 
     </section>
   );

@@ -1,0 +1,23 @@
+
+
+.preview-multiline {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+}
+
+.card{
+    border: none;
+    box-shadow: none;
+}
+
+.card-components{
+    margin: 10px;
+    padding: 0;
+}
+.row {
+  background-color: white;
+  box-shadow: none;
+}
+

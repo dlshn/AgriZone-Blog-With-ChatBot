@@ -17,35 +17,33 @@ const PORT = process.env.PORT || 5000;
 
 const apiLimiter = rateLimit({
   windowMs: 60 * 1000, // 1 minute
-  max: 15, // Reduced from 30 to be safer with free tier
+  max: 15, 
   message: "Too many requests. Please wait a minute and try again.",
   standardHeaders: true,
   legacyHeaders: false,
 });
 
-// mongoose.connect(process.env.MONGODB_URI, {
-//     useNewUrlParser: true,
-//     useUnifiedTopology: true
-// })
-// .then(() => console.log("MongoDB connected"))
-// .catch((err) => console.error("MongoDB connection error:", err));
+mongoose.connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+})
+.then(() => console.log("MongoDB connected"))
+.catch((err) => console.error("MongoDB connection error:", err));
 
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
-
-
 
 app.post('/api/chat',apiLimiter, async (req, res) => {
   const { message } = req.body;
   try {
     const model = genAI.getGenerativeModel({ 
       model: "gemini-1.5-flash",
-      // generationConfig: {
-      //   temperature: 0.5,
-      //   maxOutputTokens: 150,
-      //   topP: 0.8,
-      //   topK: 40,
-      // },
+      generationConfig: {
+        temperature: 0.5,
+        maxOutputTokens: 150,
+        topP: 0.8,
+        topK: 40,
+      },
      });
     const result = await model.generateContent(
       `You are an agriculture assistant. Answer in simple English (under 150 words): ${message}`
@@ -59,9 +57,11 @@ app.post('/api/chat',apiLimiter, async (req, res) => {
   }
 });
 
+// app.post('/upload', upload.single('image'), (req, res) => {
+//   res.json({ imageUrl: req.file.path });
+// });
 
-
-// app.use('/api/article',BlogRoute);
+app.use('/api/article',BlogRoute);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
