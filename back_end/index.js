@@ -6,7 +6,6 @@ const axios = require('axios');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const BlogRoute = require('./routes/BlogRoute');
 const rateLimit = require('express-rate-limit');
-const { upload } = require('./utils/multer');
 
 dotenv.config();
 const app = express();
@@ -58,10 +57,9 @@ app.post('/api/chat',apiLimiter, async (req, res) => {
   }
 });
 
-app.post('/upload', upload.single('image'), (req, res) => {
-  res.json({ imageUrl: req.file.path });
-});
-
+// app.post('/upload', upload.single('image'), (req, res) => {
+//   res.json({ imageUrl: req.file.path });
+// });
 
 app.use('/api/article',BlogRoute);
 
