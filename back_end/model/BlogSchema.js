@@ -19,7 +19,9 @@ const BlogSchema = new mongoose.Schema({
     by: {
         type: String,
         required: false,
-    }
+    },
+    reactions: [{ type: mongoose.Schema.Types.ObjectId, ref: "User" }]
+
 
 
 });

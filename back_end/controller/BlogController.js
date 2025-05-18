@@ -37,5 +37,24 @@ const getArticleById = async (req, res) => {
     }
 }
 
+const reactToArticle = async (req, res) => {
+    try {
+    const article = await Article.findById(req.params.id);
+    const userId = req.user.id;
 
-module.exports = {createBlog, getAllArticles, getArticleById};
+    // Toggle reaction (add or remove)
+    if (article.reactions.includes(userId)) {
+      article.reactions.pull(userId);
+    } else {
+      article.reactions.push(userId);
+    }
+
+    await article.save();
+    res.status(200).json({ message: "Reaction updated", reactions: article.reactions.length });
+  } catch (err) {
+    res.status(500).json({ message: "Failed to react", error: err.message });
+  }
+}
+
+
+module.exports = {createBlog, getAllArticles, getArticleById}; 
