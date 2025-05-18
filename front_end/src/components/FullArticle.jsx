@@ -16,9 +16,15 @@ export const FullArticle = () => {
 
   return (
     <div className="container my-4">
-      <h2>{article.title}</h2>
-      <img src={article.image} alt={article.title} className="img-fluid mb-3" />
-      <p>{article.content}</p>
+      <div className="row">
+        <div className="card col-md-8 offset-md-2">
+          <img src={article.image} alt={article.title} className="card-img-top" />
+          <div className="card-body">
+            <h5 className="card-title text-center">{article.title}</h5>
+            <p className="card-text">{article.content}</p>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };

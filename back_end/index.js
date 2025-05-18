@@ -5,7 +5,9 @@ const mongoose = require('mongoose');
 const axios = require('axios');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const BlogRoute = require('./routes/BlogRoute');
+const UserRoute = require('./routes/UserRoute');
 const rateLimit = require('express-rate-limit');
+const User = require('./model/User');
 
 dotenv.config();
 const app = express();
@@ -57,11 +59,13 @@ app.post('/api/chat',apiLimiter, async (req, res) => {
   }
 });
 
+
 // app.post('/upload', upload.single('image'), (req, res) => {
 //   res.json({ imageUrl: req.file.path });
 // });
 
 app.use('/api/article',BlogRoute);
+app.use('/api/auth', UserRoute);
 
 app.listen(PORT, () => {
     console.log(`Server is running on port ${PORT}`);
