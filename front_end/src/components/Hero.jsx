@@ -53,12 +53,12 @@ export const Hero = () => {
             Join our community of passionate farmers and agriculture lovers. Let’s grow together! 🚜🌿
             </p>
             
-            <Link to="/CreateArticle" className="btn btn-success btn-lg ms-3">Register and Write Blog</Link>
+            <Link to="/Article" className="btn btn-success btn-lg ms-3">Articles</Link>
           </div>
 
           {/* Right box */}
           <div className="col-12 col-sm-6 right-box ">
-            <h1>Chatbot</h1>
+            <h1 className="text-success">Chatbot</h1>
             <div className="">
               <input
               type="text"
