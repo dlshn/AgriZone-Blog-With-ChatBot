@@ -8,6 +8,7 @@ import Register from './components/Register';
 import {Article} from './components/Article';
 import { FullArticle } from './components/FullArticle';
 import { Routes, Route } from 'react-router-dom';
+import Footer from './components/Footer';
 
 function App() {
   return (
@@ -21,7 +22,9 @@ function App() {
         <Route path="/CreateArticle" element={<CreateArticle />} />
         <Route path="/Article" element={<Article />} />
         <Route path="/Article/:id" element={<FullArticle />} /> 
+
       </Routes>
+    <Footer />
       
     </div>
   );

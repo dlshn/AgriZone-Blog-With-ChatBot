@@ -2,12 +2,21 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
+
 export const FullArticle = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
+  
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/api/article/getById/${id}`)
+    const user = JSON.parse(localStorage.getItem("user"));
+    const token = user?.token;
+
+    axios.get(`http://localhost:5000/api/article/getById/${id}`, {
+      headers: {
+        Authorization: `Bearer ${token}`
+      }
+    })
       .then(res => setArticle(res.data))
       .catch(err => console.error(err));
   }, [id]);
@@ -22,6 +31,7 @@ export const FullArticle = () => {
           <div className="card-body">
             <h5 className="card-title text-center">{article.title}</h5>
             <p className="card-text">{article.content}</p>
+            <p className="card-text"><small className="text-muted">Published on {new Date(article.createdAt).toLocaleDateString()}</small></p>
           </div>
         </div>
       </div>
