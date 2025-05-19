@@ -1,70 +1,75 @@
-# Getting Started with Create React App
+# 🌿 AgriZone Blog
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+**AgriZone** is a modern, full-stack blog platform built with the **MERN Stack (MongoDB, Express, React, Node.js)**, designed specifically for the agriculture community. It allows users to post and read articles related to agriculture, interact via reactions, and even chat with a **smart AI-powered assistant** to solve agriculture-related problems.
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Features
 
-### `yarn start`
+- 📝 Post and view agriculture articles
+- 🖼️ Upload images to **Cloudinary**
+- 🔐 Secure user authentication (JWT)
+- 🤖 **AI Chatbot powered by Gemini API** to answer agriculture questions
+- ❤️ Like/react to posts (only for authenticated users)
+- 📱 Responsive UI with **Bootstrap**
+- ☁️ Backend with **Express & MongoDB Atlas**
+- 📤 File uploads with `multer`
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+---
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 💻 Tech Stack
 
-### `yarn test`
+| Frontend     | Backend       | Other Tools          |
+| ------------ | ------------- | -------------------- |
+| React.js     | Node.js       | Gemini API (AI Chat) |
+| Bootstrap    | Express.js    | Cloudinary (images)  |
+| Axios        | MongoDB Atlas | JWT Auth             |
+| React Router | Mongoose      | Multer (upload)      |
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `yarn build`
+---
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## 🤖 AI Chatbot Feature
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+AgriZone integrates a chatbot that helps users ask and resolve agriculture-related queries. It uses AI to provide answers to common farming issues such as:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- 🌾 Farming tips
+- 🌱 Pest control
+- 🌦️ Crop suggestions by season
+- 🧪 Organic methods
+- 🌻 Garden care
 
-### `yarn eject`
+🧠 The bot is accessible directly on the blog's homepage for instant support.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+---
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📦 Installation
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+###  Clone the repository
 
-## Learn More
+```bash
+git clone https://github.com/dlshn/AgriZone-Blog-With-ChatBot.git
+cd AgriZone-Blog-With-ChatBot
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+cd back_end
+npm install
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+-- Create a .env file
+ 
+MONGODB_URI=your_mongodb_uri
+jwt_secret=your_jwt_secret
+GEMINI_API_KEY=your_gemini_api_key
+CLOUDINARY_CLOUD_NAME=your_cloud_name
+CLOUDINARY_API_KEY=your_api_key
+CLOUDINARY_API_SECRET=your_api_secret
 
-### Code Splitting
+npm start
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+cd ../front_end
+npm install
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+npm start
 
-### Making a Progressive Web App
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
