@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom';
 
 export const Article = () => {
   const [articles, setArticles] = useState([]);
-  const [searchTerm, setSearchTerm] = useState(""); // ✅ You missed this
+  const [searchTerm, setSearchTerm] = useState("");
+   
 
   useEffect(() => {
     axios.get('http://localhost:5000/api/article/getAll')
@@ -17,6 +18,7 @@ export const Article = () => {
         console.error('Error fetching articles:', err);
       });
   }, []);
+
 
   return (
     <div className="container-fluid">
@@ -45,7 +47,11 @@ export const Article = () => {
                   <div className="card-body d-flex flex-column justify-content-center">
                     <h5 className="card-title">{article.title}</h5>
                     <p className="card-text preview-multiline">{article.content}</p>
+                    
                     <Link to={`/article/${article._id}`} className="btn btn-success">Read More</Link>
+                    <hr />
+                    <p className="card-text"><small className="text-muted">Published on {new Date(article.createdAt).toLocaleDateString()}</small></p>    
+
                   </div>
                 </div>
               </div>

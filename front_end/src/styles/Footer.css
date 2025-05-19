@@ -1,0 +1,28 @@
+footer a:hover {
+  color: #d4fcd4;
+  text-decoration: underline;
+}
+
+footer svg {
+  font-size: 1.2rem;
+}
+
+.row{
+    background-color: rgb(255, 255, 255);
+}
+
+.container{
+    padding: 20px;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    border-radius: 10px;
+    
+}
+a{
+    text-decoration: none;
+    color: #000;
+
+}
+a:hover{
+    color: #c8c8c8;
+    text-decoration: none;
+}
