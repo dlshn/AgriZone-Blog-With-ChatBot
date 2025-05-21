@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
 
 
+
 export const Article = () => {
   const [articles, setArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
