@@ -4,8 +4,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/CreateArticle.css";
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 const Register = () => {
   const [username, setUsername] = useState("");

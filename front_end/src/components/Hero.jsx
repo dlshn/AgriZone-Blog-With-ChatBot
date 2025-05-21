@@ -5,8 +5,7 @@ import "../styles/Hero.css"; // Custom CSS file for additional styling
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 
 

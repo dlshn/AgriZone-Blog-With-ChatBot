@@ -5,8 +5,7 @@ import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/CreateArticle.css"; // ✅ Reuse same CSS file
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 
 // Then use login(data) after successful login 

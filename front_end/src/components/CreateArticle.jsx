@@ -2,8 +2,7 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import "../styles/CreateArticle.css";
 import "bootstrap/dist/css/bootstrap.min.css";
-import dotenv from 'dotenv';
-dotenv.config();
+
 
 const CreateArticle = () => {
   const [title, setTitle] = useState("");
