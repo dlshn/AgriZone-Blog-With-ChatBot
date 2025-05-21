@@ -2,6 +2,8 @@ import axios from 'axios';
 import React, { useState } from 'react';
 import "../styles/CreateArticle.css";
 import "bootstrap/dist/css/bootstrap.min.css";
+import dotenv from 'dotenv';
+dotenv.config();
 
 const CreateArticle = () => {
   const [title, setTitle] = useState("");
@@ -28,7 +30,7 @@ const CreateArticle = () => {
       const formData = new FormData();
       formData.append("image", imageFile);
 
-      const uploadRes = await axios.post("http://localhost:5000/api/article/upload", formData, {
+      const uploadRes = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/article/upload`, formData, {
         headers: {
           "Content-Type": "multipart/form-data",
         },
@@ -37,7 +39,7 @@ const CreateArticle = () => {
       const imageUrl = uploadRes.data.imageUrl;
 
       // 2. Submit article data with uploaded image URL
-      const response = await axios.post("http://localhost:5000/api/article/create", {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/article/create`, {
         title,
         content,
         image: imageUrl,

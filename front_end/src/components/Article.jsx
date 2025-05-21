@@ -3,6 +3,8 @@ import axios from 'axios';
 import "../styles/Article.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
+import dotenv from 'dotenv';
+dotenv.config();
 
 export const Article = () => {
   const [articles, setArticles] = useState([]);
@@ -10,7 +12,7 @@ export const Article = () => {
    
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/article/getAll')
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/article/getAll`)
       .then(res => {
         setArticles(res.data);
       })

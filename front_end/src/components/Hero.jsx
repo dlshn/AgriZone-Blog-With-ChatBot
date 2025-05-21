@@ -5,6 +5,8 @@ import "../styles/Hero.css"; // Custom CSS file for additional styling
 import { Link } from "react-router-dom";
 import axios from "axios";
 import ReactMarkdown from "react-markdown";
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 
@@ -16,7 +18,7 @@ export const Hero = () => {
   const handleAsk = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/chat", {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/chat`, {
         message: message,
       });
       setBotResponse(response.data.reply);

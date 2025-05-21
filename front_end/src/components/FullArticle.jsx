@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import dotenv from 'dotenv';
+dotenv.config();
 
 
 export const FullArticle = () => {
@@ -12,7 +14,7 @@ export const FullArticle = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user?.token;
 
-    axios.get(`http://localhost:5000/api/article/getById/${id}`, {
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/article/getById/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
