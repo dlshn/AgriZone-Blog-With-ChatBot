@@ -1,4 +1,4 @@
-// create/delete/search/update
+// create/delete/search/update 
 const BlogSchema = require('../model/blogSchema');
 
 const createBlog = async (req, res) => {
@@ -36,11 +36,5 @@ const getArticleById = async (req, res) => {
         res.status(500).json({ message: 'Error fetching article', error });
     }
 }
-
-
-  
-
-
-
 
 module.exports = {createBlog, getAllArticles, getArticleById }; 
