@@ -13,6 +13,7 @@ export const Article = () => {
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/article/getAll`)
       .then(res => {
+        console.log("Articles Response Data: ", res.data);
         setArticles(res.data);
       })
       .catch(err => {
