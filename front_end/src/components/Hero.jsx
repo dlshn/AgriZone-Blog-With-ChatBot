@@ -8,6 +8,7 @@ import ReactMarkdown from "react-markdown";
 
 
 
+
 export const Hero = () => {
   const [message, setMessage] = useState("");
   const [botResponse, setBotResponse] = useState("");
@@ -16,7 +17,7 @@ export const Hero = () => {
   const handleAsk = async () => {
     setLoading(true);
     try {
-      const response = await axios.post("http://localhost:5000/api/chat", {
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/chat`, {
         message: message,
       });
       setBotResponse(response.data.reply);

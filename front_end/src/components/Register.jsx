@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/CreateArticle.css";
 
+
 const Register = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail]       = useState("");
@@ -14,7 +15,7 @@ const Register = () => {
   const handleRegister = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("http://localhost:5000/api/auth/register", {
+      await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/auth/register`, {
         username,
         email,
         password,

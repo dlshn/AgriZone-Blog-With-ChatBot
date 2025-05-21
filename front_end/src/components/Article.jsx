@@ -4,13 +4,14 @@ import "../styles/Article.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
 
+
 export const Article = () => {
   const [articles, setArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
    
 
   useEffect(() => {
-    axios.get('http://localhost:5000/api/article/getAll')
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/article/getAll`)
       .then(res => {
         setArticles(res.data);
       })

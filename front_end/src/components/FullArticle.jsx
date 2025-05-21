@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import axios from 'axios';
 
 
+
 export const FullArticle = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
@@ -12,7 +13,7 @@ export const FullArticle = () => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user?.token;
 
-    axios.get(`http://localhost:5000/api/article/getById/${id}`, {
+    axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/article/getById/${id}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
