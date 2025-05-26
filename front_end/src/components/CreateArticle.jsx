@@ -10,6 +10,7 @@ const CreateArticle = () => {
   const [imageFile, setImageFile] = useState(null);
   const [content, setContent] = useState("");
   const [isUploading, setIsUploading] = useState(false);
+  
 
   const handleImageChange = (e) => {
     setImageFile(e.target.files[0]); // Just store file, don't upload yet
