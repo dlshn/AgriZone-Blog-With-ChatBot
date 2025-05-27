@@ -1,7 +1,6 @@
 // src/pages/Login.js
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import axios from "axios";
-import { AuthContext } from "../context/AuthContext";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/CreateArticle.css"; // ✅ Reuse same CSS file
@@ -12,7 +11,6 @@ import "../styles/CreateArticle.css"; // ✅ Reuse same CSS file
 
 
 const Login = () => {
-  const { login } = useContext(AuthContext);
   
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -21,12 +19,13 @@ const Login = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/auth/login`, {
+      const res = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/admin/login`, {
         email,
         password,
       });
-      login(res.data);
-      navigate("/");
+      localStorage.setItem("adminToken", res.data.token);
+      alert(res.data.message);
+      navigate("/CreateArticle");
     } catch (err) {
       alert("Invalid credentials");
     }

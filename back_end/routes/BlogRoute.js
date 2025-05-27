@@ -6,7 +6,7 @@ const { upload } = require('../utils/multer');
 
 const verifyToken = require('../middleware/verifyToken');
 
-router.post('/create', BlogController.createBlog);
+router.post('/create',verifyToken, BlogController.createBlog);
 router.post('/upload', upload.single('image'), (req, res) => {
     const imageUrl = req.file.path; // Assuming you are using multer to handle file uploads
     res.json({ imageUrl });

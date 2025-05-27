@@ -17,7 +17,7 @@ const createBlog = async (req, res) => {
 
 const getAllArticles = async (req, res) => {
     try {
-        const articles = await BlogSchema.find();
+        const articles = await BlogSchema.find().sort({ createdAt: -1 }); // Sort by creation date, newest first 
         res.status(200).json(articles);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching blogs', error });
