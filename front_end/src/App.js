@@ -9,6 +9,8 @@ import {Article} from './components/Article';
 import { FullArticle } from './components/FullArticle';
 import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
+import About from './components/About';
+import Contact from './components/Contact';
 
 function App() {
   return (
@@ -21,7 +23,9 @@ function App() {
         <Route path="/Login" element={<Login />} />
         <Route path="/CreateArticle" element={<CreateArticle />} />
         <Route path="/Article" element={<Article />} />
-        <Route path="/Article/:id" element={<FullArticle />} /> 
+        <Route path="/Article/:id" element={<FullArticle />} />
+        <Route path="/About" element={<About />} />
+        <Route path="/Contact" element={<Contact />} />
 
       </Routes>
     <Footer />
