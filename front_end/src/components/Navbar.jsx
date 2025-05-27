@@ -1,11 +1,9 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import logo from "../img/AgriZone.png";
 import "../styles/Navbar.css";
 import { Link } from "react-router-dom";
-import { AuthContext } from "../context/AuthContext";
 
 export const Navbar = () => {
-  const { user, logout } = useContext(AuthContext);
 
   return (
     <nav className="navbar navbar-expand-lg shadow-lg position-sticky top-0" 
@@ -57,92 +55,28 @@ export const Navbar = () => {
         <div className="collapse navbar-collapse" id="navbarNav">
           <ul className="navbar-nav ms-auto mb-2 mb-lg-0 align-items-center">
 
-            {user ? (
-              <>
-                <li className="nav-item mx-3">
-                  <div className="d-flex align-items-center bg-success bg-opacity-10 rounded-pill px-4 py-2" 
-                       style={{
-                         border: '2px solid #28a745',
-                         backdropFilter: 'blur(5px)'
-                       }}>
-                    <div className="bg-success rounded-circle p-1 me-2">
-                      <i className="fas fa-user text-white" style={{fontSize: '12px'}}></i>
-                    </div>
-                    <span className="text-success fw-bold">Welcome, {user.username}</span>
-                  </div>
-                </li>
-                <li className="nav-item mx-3">
-                  <button className="btn btn-outline-dark btn-sm rounded-pill px-4 py-2 fw-semibold shadow-sm" 
-                          onClick={logout}
-                          style={{
-                            border: '2px solid #000000',
-                            transition: 'all 0.3s ease'
-                          }}
-                          onMouseOver={(e) => {
-                            e.target.style.background = '#000000';
-                            e.target.style.color = '#ffffff';
-                            e.target.style.transform = 'translateY(-2px)';
-                            e.target.style.boxShadow = '0 4px 15px rgba(0,0,0,0.2)';
-                          }}
-                          onMouseOut={(e) => {
-                            e.target.style.background = 'transparent';
-                            e.target.style.color = '#000000';
-                            e.target.style.transform = 'translateY(0)';
-                            e.target.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-                          }}>
-                    <i className="fas fa-sign-out-alt me-2"></i>Logout
-                  </button>
-                </li>
-              </>
-            ) : (
-              <>
-                <li className="nav-item mx-2">
-                  <Link to="/login" 
-                        className="btn btn-outline-success btn-sm rounded-pill px-4 py-2 fw-semibold shadow-sm text-decoration-none"
-                        style={{
-                          border: '2px solid #28a745',
-                          transition: 'all 0.3s ease'
-                        }}
-                        onMouseOver={(e) => {
-                          e.target.style.background = '#28a745';
-                          e.target.style.color = '#ffffff';
-                          e.target.style.transform = 'translateY(-2px)';
-                          e.target.style.boxShadow = '0 4px 15px rgba(40, 167, 69, 0.3)';
-                        }}
-                        onMouseOut={(e) => {
-                          e.target.style.background = 'transparent';
-                          e.target.style.color = '#28a745';
-                          e.target.style.transform = 'translateY(0)';
-                          e.target.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-                        }}>
-                    <i className="fas fa-sign-in-alt me-2"></i>Login
-                  </Link>
-                </li>
-                <li className="nav-item mx-2">
-                  <Link to="/Register" 
-                        className="btn btn-success btn-sm rounded-pill px-4 py-2 fw-semibold shadow-sm text-decoration-none"
-                        style={{
-                          background: '#28a745',
-                          border: '2px solid #28a745',
-                          transition: 'all 0.3s ease'
-                        }}
-                        onMouseOver={(e) => {
-                          e.target.style.background = '#218838';
-                          e.target.style.borderColor = '#218838';
-                          e.target.style.transform = 'translateY(-2px)';
-                          e.target.style.boxShadow = '0 4px 15px rgba(40, 167, 69, 0.4)';
-                        }}
-                        onMouseOut={(e) => {
-                          e.target.style.background = '#28a745';
-                          e.target.style.borderColor = '#28a745';
-                          e.target.style.transform = 'translateY(0)';
-                          e.target.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
-                        }}>
-                    <i className="fas fa-user-plus me-2"></i>Register
-                  </Link>
-                </li>
-              </>
-            )}
+            <li className="nav-item mx-2">
+              <Link to="/login" 
+                    className="btn btn-outline-success btn-sm rounded-pill px-4 py-2 fw-semibold shadow-sm text-decoration-none"
+                    style={{
+                      border: '2px solid #28a745',
+                      transition: 'all 0.3s ease'
+                    }}
+                    onMouseOver={(e) => {
+                      e.target.style.background = '#28a745';
+                      e.target.style.color = '#ffffff';
+                      e.target.style.transform = 'translateY(-2px)';
+                      e.target.style.boxShadow = '0 4px 15px rgba(40, 167, 69, 0.3)';
+                    }}
+                    onMouseOut={(e) => {
+                      e.target.style.background = 'transparent';
+                      e.target.style.color = '#28a745';
+                      e.target.style.transform = 'translateY(0)';
+                      e.target.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)';
+                    }}>
+                <i className="fas fa-sign-in-alt me-2"></i>Login
+              </Link>
+            </li>
 
             <li className="nav-item mx-2">
               <Link to="/" 

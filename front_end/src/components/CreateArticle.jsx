@@ -39,12 +39,18 @@ const CreateArticle = () => {
 
       const imageUrl = uploadRes.data.imageUrl;
 
-      // 2. Submit article data with uploaded image URL
-      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/article/create`, {
-        title,
-        content,
-        image: imageUrl,
-      });
+      // 2. Submit article data with uploaded image URL 
+      const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/article/create`, 
+        {
+          title,
+          content,
+          image: imageUrl,
+        },
+        {headers: {
+          Authorization: `Bearer ${localStorage.getItem("adminToken")}`,
+        },
+        }
+      );
 
       console.log(response.data);
     //   alert("Article Created Successfully");
@@ -56,7 +62,7 @@ const CreateArticle = () => {
       e.target.reset();
     } catch (error) {
       console.error("Error:", error.message);
-      alert("Failed to create article");
+      alert("Failed to create article!");
     } finally {
       setIsUploading(false);
     }
