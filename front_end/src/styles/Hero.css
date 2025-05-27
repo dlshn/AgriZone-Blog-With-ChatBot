@@ -1,154 +1,152 @@
+/* Hero.css */
 .hero {
-  height: auto;
-  background: rgb(254, 254, 254) center/cover no-repeat;
+ background-image: url(../img/bg.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
   color: rgb(0, 0, 0);
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.container {
-  height: auto;
-  padding: 0 15px; /* Add padding for smaller screens */
-}
-
-.row {
+  padding: 4rem 0;
   position: relative;
-  background: rgba(255, 255, 255, 0.2);
-  padding: 40px;
-  margin: 20px auto;
-  height: auto;
-  width: 100%;
-  max-width: 1200px; /* Limit width for larger screens */
-  border-radius: 5px;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+
 }
 
-.row::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2); /* Dark overlay */
-  backdrop-filter: blur(10px); /* Blurs the background */
-  z-index: -1;
+
+.hero-container {
+  position: relative;
+  z-index: 1;
+  background-color: rgb(255, 255, 255);
 }
+
+/* .hero-card {
+  background: rgba(255, 255, 255, 0.9);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  border: none;
+} */
 
 .hero-title {
-  color: rgb(0, 100, 61);
-  font-size: 3rem;
-  font-weight: bold;
-  height: auto;
-  margin: 0;
-  padding: 10px;
-  text-align: center;
-}
-
-.left-box {
-  position: relative;
-  padding: 20px;
-  border-radius: 8px;
-  text-align: center;
-  box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-}
-
-.left-box::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.2);
-  backdrop-filter: blur(10px);
-  z-index: -1;
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
 .hero-subtitle {
-  font-size: 1rem;
-  margin-bottom: 20px;
-  text-align: justify;
+  color: #333;
+  line-height: 1.7;
+  margin-bottom: 2rem;
+  font-family: 'Alex Brush', cursive;
 }
 
-.right-box {
-  padding: 20px;
-  text-align: center;
+.hero-chat-container {
+  background: rgba(237, 255, 240, 0.9);
+  border-radius: 10px;
+  padding: 2rem;
+  height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+
 }
 
-.chatbot {
-  background-color: aliceblue;
-  min-height: 40px;
-  height: auto;
-  width: 100%;
+.chatbot-header {
+  color: rgb(0, 100, 61);
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  
+}
+
+.chatbot-input {
+  border: 2px solid rgba(0, 100, 61, 0.2);
   border-radius: 8px;
-  padding: 10px;
+  padding: 12px 15px;
+  transition: all 0.3s;
+}
+
+.chatbot-input:focus {
+  border-color: rgb(0, 100, 61);
+  box-shadow: 0 0 0 0.25rem rgba(0, 100, 61, 0.25);
+}
+
+.btn-ask {
+  background-color: rgb(0, 100, 61);
   border: none;
+  padding: 12px;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
-.btn {
-  width: 100%; /* Make button full-width on smaller screens */
+.btn-ask:hover {
+  background-color: rgba(0, 100, 61, 0.9);
+  transform: translateY(-2px);
 }
 
-
-
-
-
-
-
-
-/* 🔹 Tablet Screens (768px and below) */
-@media (max-width: 768px) {
-  .hero-title {
-      font-size: 2.2rem;
-      text-align: center;
-  }
-
-  .hero-subtitle {
-      font-size: 1rem;
-  }
-
-  .row {
-      padding: 20px; /* Reduce padding */
-  }
-
-  .left-box, .right-box {
-      text-align: center;
-      padding: 15px;
-  }
+.btn-articles {
+  border: none;
+  padding: 12px 24px;
+  font-weight: 600;
+  transition: all 0.3s;
 }
 
-/* 🔹 Mobile Screens (576px and below) */
-@media (max-width: 576px) {
+.btn-articles:hover {
+  background-color: rgba(0, 100, 61, 0.9);
+  transform: translateY(-2px);
+}
+
+.chat-response {
+  background: white;
+  border-radius: 8px;
+  padding: 15px;
+  margin-top: 1rem;
+  border-left: 4px solid rgb(0, 100, 61);
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive adjustments */
+@media (max-width: 992px) {
   .hero {
-      height: auto;
-      padding: 30px 0;
+    padding: 3rem 0;
   }
-
+  
   .hero-title {
-      font-size: 2rem;
+    font-size: 2.5rem;
   }
+}
 
+@media (max-width: 768px) {
+  .hero {
+    padding: 2rem 2rem;
+    height: auto;
+  }
+  
+  .hero-title {
+    font-size: 2rem;
+  }
+  
   .hero-subtitle {
-      font-size: 0.9rem;
+    font-size: 0.95rem;
   }
-
-  .row {
-      padding: 15px; /* Reduce padding more */
+  
+  .hero-chat-container {
+    margin-top: 2rem;
   }
+}
 
-  .left-box, .right-box {
-      padding: 10px;
+@media (max-width: 576px) {
+  .hero-title {
+    font-size: 1.8rem;
   }
-
-  .btn {
-      font-size: 1rem;
-      padding: 10px;
+  
+  .btn-articles, .btn-ask {
+    width: 100%;
   }
 }
