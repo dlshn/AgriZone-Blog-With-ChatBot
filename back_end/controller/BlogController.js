@@ -2,13 +2,13 @@
 const BlogSchema = require('../model/blogSchema');
 
 const createBlog = async (req, res) => {
-    const { title, content, image } = req.body;
+    const { title, content1,content2, image } = req.body;
 
-    if (!title || !content || !image) {
+    if (!title || !content1 || !content2 || !image) {
         return res.status(400).json({ message: 'All fields are required' });
     }
 
-    const newBlog = new BlogSchema({ title, content, image });
+    const newBlog = new BlogSchema({ title, description:content1, content:content2, image });
 
     await newBlog.save()
             .then(blog => res.status(201).json(blog))

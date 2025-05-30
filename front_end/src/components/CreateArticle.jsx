@@ -8,7 +8,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const CreateArticle = () => {
   const [title, setTitle] = useState("");
   const [imageFile, setImageFile] = useState(null);
-  const [content, setContent] = useState("");
+  const [content1, setContent1] = useState("");
+  const [content2, setContent2] = useState("");
   const [isUploading, setIsUploading] = useState(false);
   
 
@@ -43,7 +44,8 @@ const CreateArticle = () => {
       const response = await axios.post(`${process.env.REACT_APP_API_BASE_URL}/api/article/create`, 
         {
           title,
-          content,
+          content1,
+          content2,
           image: imageUrl,
         },
         {headers: {
@@ -57,7 +59,8 @@ const CreateArticle = () => {
 
       // Clear the form
       setTitle("");
-      setContent("");
+      setContent1("");
+      setContent2("");
       setImageFile(null);
       e.target.reset();
     } catch (error) {
@@ -77,15 +80,19 @@ const CreateArticle = () => {
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="title" className="form-label fs-5">Title</label>
-              <input type="text" className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title" required />
+              <input id='title' type="text" className="form-control" value={title} onChange={(e) => setTitle(e.target.value)} placeholder="Enter title" required />
             </div>
             <div className="mb-3">
-              <label htmlFor="content" className="form-label fs-5">Content</label>
-              <textarea className="form-control" rows="5" value={content} onChange={(e) => setContent(e.target.value)} placeholder="Write your article here..." required></textarea>
+              <label htmlFor="content1" className="form-label fs-5">Description</label>
+              <textarea id='content1' className="form-control" rows="5" value={content1} onChange={(e) => setContent1(e.target.value)} placeholder="Write your article here..." required></textarea>
+            </div>
+            <div className="mb-3">
+              <label htmlFor="content2" className="form-label fs-5">Content</label>
+              <textarea id='content2' className="form-control" rows="5" value={content2} onChange={(e) => setContent2(e.target.value)} placeholder="Write your article here..." required></textarea>
             </div>
             <div className="mb-3">
               <label htmlFor="image" className="form-label fs-5">Image</label>
-              <input type="file" accept="image/*" onChange={handleImageChange} required />
+              <input id='image' type="file" accept="image/*" onChange={handleImageChange} required />
             </div>
             <button type="submit" className="btn btn-success" disabled={isUploading}>
               {isUploading ? "Uploading..." : "Submit"}
