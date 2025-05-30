@@ -40,13 +40,14 @@ export const Hero = () => {
 
   return (
     <section className="hero">
-      <div className="container hero-container pb-5">
+      <div className="container hero-container">
         <div className="row justify-content-center">
           <div className="col-lg-12">
-            <div className="hero-card p-2 p-md-2">
-              <div className="row align-items-center mx-0">
-                <div className="col-12">
-                  <h1 className="hero-title display-4 text-success text-center mb-4">
+            <div className="hero-card p-md-2 rounded shadow">
+              <div className="row align-items-center mx-0 shadow-none pb-4">
+                <div className="col-12 mt-0 border-none">
+                  <h1 className="hero-title display-4 text-success text-center mt-0 mb-4 border-none">
+
                     <Typewriter
                       options={{
                         strings: ["Welcome to AgriZone..."],
@@ -59,11 +60,10 @@ export const Hero = () => {
                   </h1>
                 </div>
 
-                {/* Left Content */}
-                <div className="col-12 col-lg-6 mb-4 mb-lg-0 border border-success p-4 rounded d-flex flex-column justify-content-center align-items-center">
+                {/* Left Content  */}
+                <div className="col-12 col-lg-6 mb-4 mb-lg-0 p-4 rounded d-flex flex-column justify-content-center align-items-center">
                   <h5 className="hero-subtitle text-center">
-                    Your premier agriculture knowledge hub!{" "}
-                    <span className="text-success"><b>AgriZone</b></span> empowers farmers, agripreneurs, students, and farming enthusiasts with cutting-edge insights.
+                    <span className="text-success fw-bold">AgriZone</span> is your smart farming guide—explore tips, trends, and tech. Chat with our <span className="text-success fw-bold">AI Assistant</span> for quick answers and grow your agricultural knowledge anytime!
                   </h5>
 
                   <div className="d-flex flex-wrap gap-3">
@@ -131,7 +131,7 @@ export const Hero = () => {
                     <div className="modal-dialog modal-dialog-centered" role="document">
                       <div className="modal-content d-flex flex-column justify-content-center align-items-center">
                         <div className="modal-header">
-                          <h5 className="modal-title text-success">AgriZone Assistant Response:</h5>
+                          <h5 className="modal-title text-success">AgriZone Bot:</h5>
                         </div>
                         <div className="modal-body">
                           
