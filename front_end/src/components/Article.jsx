@@ -3,6 +3,7 @@ import axios from 'axios';
 import "../styles/Article.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
+import { MdScreenSearchDesktop } from "react-icons/md";
 
 export const Article = () => {
   const [articles, setArticles] = useState([]);
@@ -28,17 +29,19 @@ export const Article = () => {
   const visibleArticles = filteredArticles.slice(0, visibleCount);
 
   return (
-    <div className="container-fluid">
-      <div className="row border p-4">
+    <div className="container">
+      <div className="row p-4">
         <h2 className='text-success text-center my-4'>Latest Articles</h2>
-
+        <div className='d-flex justify-content-center align-items-center mb-4'>
+        <MdScreenSearchDesktop className='search-icon mx-3 fs-1 text-success ' />
         <input
           type="text"
-          placeholder="🔍 Search articles..."
-          className="form-control mb-4"
+          placeholder= "Search articles..."
+          className="form-control border border-success"
           value={searchTerm}
           onChange={(e) => setSearchTerm(e.target.value)}
         />
+        </div>
 
         {filteredArticles.length === 0 ? (
           <p className='text-center text-success'>No articles found.</p>
@@ -49,12 +52,12 @@ export const Article = () => {
                 <img src={article.image} alt={article.title} className="card-img-top" />
                 <div className="card-body d-flex flex-column justify-content-center">
                   <h5 className="card-title">{article.title}</h5>
-                  <small className="description">{article.description}</small>
-                  <hr />
-                  <p className='card-text content'>{article.content}</p>
+                  <small className="description mb-0 border border-success">{article.description}</small>
+                  <hr className='border border-success'/>
+                  <p className='card-text content mt-0'>{article.content}</p>
                   <Link to={`/article/${article._id}`} className="btn btn-success">Read More</Link>
-                  <hr />
-                  <p className="card-text">
+                  
+                  <p className="card-text mt-2">
                     <small className="text-muted">Published on {new Date(article.createdAt).toLocaleDateString()}</small>
                   </p>
                 </div>

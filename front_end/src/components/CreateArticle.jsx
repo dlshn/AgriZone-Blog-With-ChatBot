@@ -1,7 +1,7 @@
 import axios from 'axios';
 import React, { useState } from 'react';
 import "../styles/CreateArticle.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+
 
 
 
@@ -73,8 +73,8 @@ const CreateArticle = () => {
 
   return (
     <>
-     <div className='container '>
-      <div className="row d-flex align-items-center flex-column">
+     <div className='container p-4 my-5 shadow-none rounded-4'>
+      <div className="row d-flex align-items-center flex-column ">
         <div className='col-12 col-sm-6 col-md-8 col-lg-8 p-5 create-article'>
           <h2 className='text-success text-center'>Create Article</h2>
           <form onSubmit={handleSubmit}>

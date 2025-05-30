@@ -23,7 +23,7 @@ const Login = () => {
         password,
       });
       localStorage.setItem("adminToken", res.data.token);
-      alert(res.data.message);
+      
       navigate("/CreateArticle");
     } catch (err) {
       alert("Invalid credentials");
