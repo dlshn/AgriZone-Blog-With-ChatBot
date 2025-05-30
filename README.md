@@ -31,7 +31,8 @@
 - ❤️ Like/react to posts (only for authenticated users)  
 - 📱 Responsive UI with **Bootstrap**  
 - ☁️ Backend with **Express & MongoDB Atlas**  
-- 📤 File uploads with `multer`
+- 📤 File uploads with `multer`  
+- 📧 Contact form powered by **EmailJS**
 
 ---
 
@@ -43,6 +44,7 @@
 | Bootstrap    | Express.js    | Cloudinary (images)  |
 | Axios        | MongoDB Atlas | JWT Auth             |
 | React Router | Mongoose      | Multer (upload)      |
+| EmailJS      |               |                      |
 
 ---
 
@@ -60,6 +62,39 @@ AgriZone integrates a chatbot that helps users ask and resolve agriculture-relat
 
 ---
 
+## 📧 Contact Form (EmailJS Integration)
+
+AgriZone includes a **Contact Us** form powered by **[EmailJS](https://www.emailjs.com/)** so visitors can reach out easily without backend email configuration.
+
+### ✉️ EmailJS Features:
+
+- Send messages directly from frontend using EmailJS API  
+- Form includes: Name, Email, and Message  
+- Secure public key and environment variables  
+- Styled using Bootstrap
+
+### ⚖️ Setup Instructions:
+
+1. **Create an EmailJS account** at [emailjs.com](https://www.emailjs.com/)
+2. **Create an email service**, **template**, and copy your:
+   - **Service ID**
+   - **Template ID**
+   - **Public Key**
+3. Add these to your `.env` file in the `front_end/` directory:
+
+```env
+REACT_APP_EMAILJS_SERVICE_ID=your_service_id
+REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
+REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
+```
+
+4. The form is located in `src/pages/Contact.js` and uses:
+
+```bash
+npm install @emailjs/browser
+```
+
+---
 
 ## 📦 Installation
 
@@ -83,10 +118,8 @@ CLOUDINARY_API_SECRET=your_api_secret
 
 npm start
 
-
 cd ../front_end
 npm install
 
 npm start
-
-
+```
