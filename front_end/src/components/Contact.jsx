@@ -35,7 +35,7 @@ const Contact = () => {
         <div className="col-lg-8">
           <h1 className="text-success text-center mb-4">Contact Us</h1>
           <p className="fs-5 text-center">
-            We'd love to hear from you! Send us your questions, feedback, or suggestions.
+            Send us your questions, feedback, or suggestions.
           </p>
           <form ref={form} onSubmit={sendEmail} className="p-4 shadow rounded bg-light">
             <div className="mb-3">
