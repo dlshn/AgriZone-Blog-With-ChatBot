@@ -11,12 +11,14 @@ import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import About from './components/About';
 import Contact from './components/Contact';
+import ScrollToTop from './components/ScrollToTop';
+
 
 function App() {
   return (
     <div className="App">
       <Navbar />
-      
+        <ScrollToTop />
         <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/Register" element={<Register />} />

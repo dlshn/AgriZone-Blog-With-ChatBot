@@ -1,10 +1,26 @@
-
-
-.preview-multiline {
+.card-title{
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+.description {
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  color: #333;
+  border-radius: 10px;
+  background-color: rgba(237, 255, 240, 0.9);;
+  padding: 5px 10px;
+}
+.content{
   overflow: hidden;
   display: -webkit-box;
   -webkit-line-clamp: 5;
   -webkit-box-orient: vertical;
+  color: black;
+
 }
 
 .card{
@@ -19,5 +35,15 @@
 .row {
   background-color: white;
   box-shadow: none;
+}
+
+@media (max-width: 768px) {
+  .card-title, .description  {
+    -webkit-line-clamp: 2; /* Adjust for smaller screens */
+  }
+  .content {
+    -webkit-line-clamp: 3; /* Adjust for smaller screens */
+    font-size: 18px; 
+  }
 }
 

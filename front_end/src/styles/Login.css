@@ -1,0 +1,20 @@
+.login-wrapper {
+  background: linear-gradient(to right, #f8f9fa, #e9f7ef);
+  padding: 20px;
+}
+
+.login-box {
+  width: 100%;
+  max-width: 600px;
+  background-color: #fff;
+}
+
+@media (max-width: 576px) {
+  .login-box {
+    padding: 2rem 1rem;
+    border-radius: 1rem;
+  }
+  .login-wrapper{
+    margin-top: 40px;
+  }
+}

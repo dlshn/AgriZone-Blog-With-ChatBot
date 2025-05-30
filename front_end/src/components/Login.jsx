@@ -3,11 +3,10 @@ import React, { useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../styles/CreateArticle.css"; // ✅ Reuse same CSS file
+import "../styles/Login.css"; // ✅ Reuse same CSS file
 
 
 
-// Then use login(data) after successful login 
 
 
 const Login = () => {
@@ -32,25 +31,29 @@ const Login = () => {
   };
 
   return (
-    <div className='container'>
-      <div className="row d-flex align-items-center flex-column">
-        <div className='col-12 col-sm-6 col-md-8 col-lg-8 p-5 create-article'>
-          <h2 className='text-success text-center'>Login</h2>
-          <form onSubmit={handleLogin}>
-            <div className="mb-3">
-              <label className="form-label fs-5">Email</label>
-              <input type="email" className="form-control" onChange={(e) => setEmail(e.target.value)} required />
-            </div>
-            <div className="mb-3">
-              <label className="form-label fs-5">Password</label>
-              <input type="password" className="form-control" onChange={(e) => setPassword(e.target.value)} required />
-            </div>
-            <button type="submit" className="btn btn-success w-100">Login</button>
-          </form>
-        </div>
+  <div className="login-wrapper vh-100 ">
+    <div className="d-flex flex-column justify-content-center align-items-center mt-5 pt-5">
+      <p className="text-center text-muted mb-4">
+        <strong>Admins Only:</strong> Please enter your credentials to access the article management system.
+      </p>
+      <div className="login-box p-4 shadow-sm rounded-4">
+        <h2 className='text-success text-center mb-4'>Admin Login</h2>
+        <form onSubmit={handleLogin}>
+          <div className="mb-3">
+            <label className="form-label fs-5">Email</label>
+            <input type="email" className="form-control" onChange={(e) => setEmail(e.target.value)} required />
+          </div>
+          <div className="mb-3">
+            <label className="form-label fs-5">Password</label>
+            <input type="password" className="form-control" onChange={(e) => setPassword(e.target.value)} required />
+          </div>
+          <button type="submit" className="btn btn-success w-100">Login</button>
+        </form>
       </div>
     </div>
-  );
+  </div>
+);
+
 };
 
 export default Login;
