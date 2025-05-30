@@ -28,9 +28,9 @@ const Footer = () => {
                     <h5 className="text-uppercase fw-bold text-success">Quick Links</h5>
                     <ul className="list-unstyled d-flex flex-column gap-2">
                     <li><a href="/" className="text-dark text-decoration-none">Home</a></li>
-                    <li><a href="/create" className="text-dark text-decoration-none">Create Article</a></li>
-                    <li><a href="/about" className="text-dark text-decoration-none">About</a></li>
-                    <li><a href="/contact" className="text-dark text-decoration-none">Contact</a></li>
+                    <li><a href="/Article" className="text-dark text-decoration-none">Articles</a></li>
+                    <li><a href="/About" className="text-dark text-decoration-none">About</a></li>
+                    <li><a href="/Contact" className="text-dark text-decoration-none">Contact</a></li>
                     </ul>
                 </div>
 

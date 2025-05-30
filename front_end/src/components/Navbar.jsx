@@ -72,7 +72,7 @@ export const Navbar = () => {
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
                   letterSpacing: '-0.5px',
-                  fontFamily: '"Dancing Script", cursive',
+                  fontFamily: '"Sofia", sans-serif',
                 }}>AgriZone</span>
         </Link>
 
