@@ -66,33 +66,7 @@ AgriZone integrates a chatbot that helps users ask and resolve agriculture-relat
 
 AgriZone includes a **Contact Us** form powered by **[EmailJS](https://www.emailjs.com/)** so visitors can reach out easily without backend email configuration.
 
-### ✉️ EmailJS Features:
 
-- Send messages directly from frontend using EmailJS API  
-- Form includes: Name, Email, and Message  
-- Secure public key and environment variables  
-- Styled using Bootstrap
-
-### ⚖️ Setup Instructions:
-
-1. **Create an EmailJS account** at [emailjs.com](https://www.emailjs.com/)
-2. **Create an email service**, **template**, and copy your:
-   - **Service ID**
-   - **Template ID**
-   - **Public Key**
-3. Add these to your `.env` file in the `front_end/` directory:
-
-```env
-REACT_APP_EMAILJS_SERVICE_ID=your_service_id
-REACT_APP_EMAILJS_TEMPLATE_ID=your_template_id
-REACT_APP_EMAILJS_PUBLIC_KEY=your_public_key
-```
-
-4. The form is located in `src/pages/Contact.js` and uses:
-
-```bash
-npm install @emailjs/browser
-```
 
 ---
 
@@ -105,21 +79,7 @@ git clone https://github.com/dlshn/AgriZone-Blog-With-ChatBot.git
 cd AgriZone-Blog-With-ChatBot
 
 cd back_end
-npm install
-
--- Create a .env file
- 
-MONGODB_URI=your_mongodb_uri
-jwt_secret=your_jwt_secret
-GEMINI_API_KEY=your_gemini_api_key
-CLOUDINARY_CLOUD_NAME=your_cloud_name
-CLOUDINARY_API_KEY=your_api_key
-CLOUDINARY_API_SECRET=your_api_secret
-
-npm start
 
 cd ../front_end
-npm install
 
-npm start
 ```
