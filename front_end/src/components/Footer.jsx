@@ -11,8 +11,8 @@ import logo from "../img/AgriZone.png";
 const Footer = () => {
   return (
     <footer className="bg-succes text-dark pt-4 pb-2 mt-5">
-        <hr />
-      <div className="container text-center text-md-left p-0 ">
+        
+      <div className="container text-center text-md-left p-2 ">
         <div className="row">
             
             <div className="d-flex flex-column flex-md-row justify-content-between gap-3 ">
@@ -49,7 +49,7 @@ const Footer = () => {
                     </div>
                 </div>
             </div>
-            <hr className="bg-light my-3 mx-" />
+            
             <div className="text-center">
                 <small>© {new Date().getFullYear()} AgriZone. All rights reserved.</small>
             </div>

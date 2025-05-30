@@ -169,8 +169,9 @@ export const Navbar = () => {
                         e.target.style.color = '#28a745';
                         e.target.style.transform = 'translateY(0)';
                         e.target.style.boxShadow = 'none';
-                      }}>
-                  <i className={`${item.icon} me-2`} 
+                      }}
+                      >
+                  <i className={`${item.icon} me-2 text-success`} 
                      style={{ fontSize: '14px' }}></i>
                   {item.text}
                 </Link>
