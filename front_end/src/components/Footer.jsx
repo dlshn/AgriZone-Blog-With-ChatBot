@@ -4,7 +4,7 @@ import { IoLogoYoutube } from "react-icons/io5";
 
 import { MdLocationPin } from "react-icons/md";
 import { TfiEmail } from "react-icons/tfi";
-import "../styles/Footer.css"; // optional for extra style
+import "../styles/Footer.css"; // optional for extra style 
 import "bootstrap/dist/css/bootstrap.min.css";
 import logo from "../img/AgriZone.png";
 
@@ -13,14 +13,14 @@ const Footer = () => {
     <footer className="bg-succes text-dark pt-4 pb-2 mt-5">
         
       <div className="container text-center text-md-left p-2 ">
-        <div className="row">
+        <div className="row row-items">
             
             <div className="d-flex flex-column flex-md-row justify-content-between gap-3 ">
                 {/* Logo / About */}
                 <div className="col-md-4 ">
-                <h5 className="text-uppercase fw-bold text-success">AgriZone</h5>
-                <img src={logo} alt="AgriZone Logo" className="img-fluid mb-2" style={{ width: "100px" }} />
-                <p>Your trusted source for agriculture insights, news, and guides.</p>
+                  <h5 className="text-uppercase fw-bold text-success">AgriZone</h5>
+                  <img src={logo} alt="AgriZone Logo" className="img-fluid mb-2" style={{ width: "100px" }} />
+                  <p>Your trusted source for agriculture insights, news, and guides.</p>
                 </div>
 
                 {/* Quick Links */}

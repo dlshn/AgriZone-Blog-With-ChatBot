@@ -42,7 +42,7 @@ footer::before {
 }
 
 /* Row and Layout */
-.row {
+.row-items {
   background-color: transparent;
   position: relative;
   z-index: 1;
@@ -67,8 +67,9 @@ h5.text-success::after {
   content: '';
   position: absolute;
   bottom: -8px;
-  left: 0;
-  width: 40px;
+  left: 50%;
+    transform: translateX(-50%);
+  width: 80px;
   height: 3px;
   background: linear-gradient(90deg, #198754, #20c997);
   border-radius: 2px;

@@ -28,8 +28,8 @@ export const Article = () => {
   const visibleArticles = filteredArticles.slice(0, visibleCount);
 
   return (
-    <div className="container-fluid">
-      <div className="row border p-4">
+    <div className="container">
+      <div className="row p-4">
         <h2 className='text-success text-center my-4'>Latest Articles</h2>
 
         <input

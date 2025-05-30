@@ -31,12 +31,13 @@ const Contact = () => {
   return (
     <>
     <div className="container my-5">
-      <div className="row justify-content-center">
-        <div className="col-lg-8">
+      <div className="row justify-content-center ">
+        <div className="col-lg-8 ">
           <h1 className="text-success text-center mb-4">Contact Us</h1>
-          <p className="fs-5 text-center">
+          <h5 className="fs-5 text-center mb-0">
             Send us your questions, feedback, or suggestions.
-          </p>
+          </h5>
+          
           <form ref={form} onSubmit={sendEmail} className="p-4 shadow rounded bg-light">
             <div className="mb-3">
               <label className="form-label">Name</label>
