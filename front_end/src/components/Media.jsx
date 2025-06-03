@@ -8,38 +8,38 @@ const VideoGallery = () => {
   const videos = [
     { 
       id: 'jL05UbRHZtk&t=102s', // Replace with your regular video ID
-      title: 'Full Tutorial: Organic Composting',
+      title: 'Global Grape Chronicles',
       isShort: false
     },
     { 
       id: 'cKJqm5BrYrc&t=75s', 
-      title: 'Greenhouse Setup Guide',
+      title: 'From Paddy to Plate',
       isShort: false
     },
     { 
       id: 'pxJ3y8IAHOU', 
-      title: 'Greenhouse Setup Guide',
+      title: 'Corn Cultivation ',
       isShort: false
     },
     { 
       id: 'TZ-DCaiWAYU', // Replace with your Shorts ID
-      title: 'Quick Tip: Seed Planting',
+      title: 'Guava Harvesting',
       isShort: true
     },
     { 
       id: 'S1xyhtDDXYU', 
-      title: 'Pest Control Hack',
+      title: 'Apple fruit Harvesting',
       isShort: true
     },
     { 
       id: 'm7U1yzqgpPU', // Replace with your Shorts ID
-      title: 'Quick Tip: Seed Planting',
+      title: 'Jackfruit',
       isShort: true
       
     },
     { 
       id: '9B6kGQjB5Xc', 
-      title: 'Pest Control Hack',
+      title: 'Strawberry',
       isShort: true
     },
     // Add more videos as needed
