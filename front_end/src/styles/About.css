@@ -1,0 +1,30 @@
+/* About.css */
+.about-container {
+  padding-top: 80px; /* Adjust this value based on your navbar height */
+  min-height: 100vh;
+  background-color: #fff; /* Set your preferred background color */
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .about-container {
+    padding-top: 70px; /* Slightly less padding for mobile */
+  }
+  
+  .container {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+  
+  .col-lg-10 {
+    padding-left: 15px;
+    padding-right: 15px;
+  }
+}
+
+/* Optional: Add smooth scrolling behavior */
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}

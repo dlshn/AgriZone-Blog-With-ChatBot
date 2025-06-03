@@ -1,62 +1,73 @@
 import React from "react";
-import { FaFacebookF, FaPinterest , FaWhatsapp,    } from "react-icons/fa";
-import { IoLogoYoutube } from "react-icons/io5";
-
-import { MdLocationPin } from "react-icons/md";
-import { TfiEmail } from "react-icons/tfi";
-import "../styles/Footer.css"; // optional for extra style 
-import "bootstrap/dist/css/bootstrap.min.css";
+import { FaFacebook, FaYoutube, FaPinterest, FaWhatsapp } from "react-icons/fa";
+import { MdEmail, MdLocationOn } from "react-icons/md";
 import logo from "../img/AgriZone.png";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/Footer.css";
 
 const Footer = () => {
   return (
-    <footer className="bg-succes text-dark pt-4 pb-2 mt-5">
-        
-      <div className="container text-center text-md-left p-2 ">
-        <div className="row row-items">
-            
-            <div className="d-flex flex-column flex-md-row justify-content-between gap-3 ">
-                {/* Logo / About */}
-                <div className="col-md-4 ">
-                  <h5 className="text-uppercase fw-bold text-success">AgriZone</h5>
-                  <img src={logo} alt="AgriZone Logo" className="img-fluid mb-2" style={{ width: "100px" }} />
-                  <p>Your trusted source for agriculture insights, news, and guides.</p>
-                </div>
+    <footer className="site-footer">
+      <div className="footer-container">
+        {/* Main Footer Content */}
+        <div className="footer-grid">
+          {/* Brand Column */}
+          <div className="footer-brand">
+            <img src={logo} alt="AgriZone Logo" className="footer-logo" />
+            <p className="footer-description">
+              Your trusted source for agriculture insights, news, and guides.
+            </p>
+          </div>
 
-                {/* Quick Links */}
-                <div className="col-md-4">
-                    <h5 className="text-uppercase fw-bold text-success">Quick Links</h5>
-                    <ul className="list-unstyled d-flex flex-column gap-2">
-                    <li><a href="/" className="text-dark text-decoration-none">Home</a></li>
-                    <li><a href="/create" className="text-dark text-decoration-none">Create Article</a></li>
-                    <li><a href="/about" className="text-dark text-decoration-none">About</a></li>
-                    <li><a href="/contact" className="text-dark text-decoration-none">Contact</a></li>
-                    </ul>
-                </div>
+          {/* Links Column */}
+          <div className="footer-links">
+            <h3 className="footer-heading">Quick Links</h3>
+            <ul className="footer-nav">
+              <li><a href="/">Home</a></li>
+              <li><a href="/Article">Articles</a></li>
+              <li><a href="/About">About</a></li>
+              <li><a href="/Contact">Contact</a></li>
+            </ul>
+          </div>
 
-                {/* Contact / Social */}
-                <div className="col-md-4 px-5">
-                    <h5 className="text-uppercase fw-bold text-success">Connect</h5>
-                    <div className="d-flex flex-column align-items-start gap-2">
-                        <a href="mailto:agrizoneofficial01@gmail.com" className="text-dark d-block"><TfiEmail /> agrizoneofficial01@gmail.com</a>
-                        <a href="https://wa.me/94705570433" className="text-dark d-block"><FaWhatsapp /> +94 70 557 0433</a>
-                        <p><MdLocationPin /> Colombo, Sri Lanka</p>
-                    </div>
-                    <div className="d-flex flex-row gap-5 justify-content-center mt-3">
-                        <a href="https://www.facebook.com/profile.php?id=100093844576140" className="text-success"><FaFacebookF /></a>
-                        <a href="https://www.youtube.com/@AgriZone-" className="text-success"><IoLogoYoutube /></a>
-                        <a href="https://www.pinterest.com/agrizoneofficial01/" className="text-success"><FaPinterest /></a>
-                    </div>
-                </div>
-            </div>
-            
-            <div className="text-center">
-                <small>© {new Date().getFullYear()} AgriZone. All rights reserved.</small>
-            </div>
-          
+          {/* Contact Column */}
+          <div className="footer-contact">
+            <h3 className="footer-heading">Contact Us</h3>
+            <ul className="contact-info">
+              <li>
+                <MdEmail className="contact-icon" />
+                <a href="mailto:agrizoneofficial01@gmail.com">agrizoneofficial01@gmail.com</a>
+              </li>
+              <li>
+                <FaWhatsapp className="contact-icon" />
+                <a href="https://wa.me/94705570433">+94 70 557 0433</a>
+              </li>
+              <li>
+                <MdLocationOn className="contact-icon" />
+                <span>Colombo, Sri Lanka</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        {/* Social Media */}
+        <div className="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=100093844576140" aria-label="Facebook">
+            <FaFacebook />
+          </a>
+          <a href="https://www.youtube.com/@AgriZone-" aria-label="YouTube">
+            <FaYoutube />
+          </a>
+          <a href="https://www.pinterest.com/agrizoneofficial01/" aria-label="Pinterest">
+            <FaPinterest />
+          </a>
+        </div>
+
+        {/* Copyright */}
+        <div className="footer-copyright">
+          <p>&copy; {new Date().getFullYear()} AgriZone. All rights reserved.</p>
         </div>
       </div>
-      
     </footer>
   );
 };

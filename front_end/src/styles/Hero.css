@@ -4,27 +4,22 @@
   background-position: center;
   background-repeat: no-repeat;
   color: rgb(0, 0, 0);
-  
   position: relative;
   overflow: hidden;
   min-height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  padding-top: 100px;
+  padding-bottom: 100px;
   height: auto;
+  justify-content: center;
 }
 
 .hero-container {
-  position: relative;
-  z-index: 1;
-  background-color: rgb(255, 255, 255);
-  padding: 1rem;
-  margin-top: 40px;
+  margin-top: 40%;
 }
 
 .hero-title {
   font-weight: 700;
-
   text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.1);
 }
 
@@ -107,7 +102,7 @@
 /* Responsive adjustments */
 @media (max-width: 992px) {
   .hero {
-    padding: 3rem 0;
+    padding: 70px 0;
 
   }
 
@@ -118,7 +113,7 @@
 
 @media (max-width: 768px) {
   .hero {
-    padding: 2rem 2rem;
+    padding: 60px 20px;
   }
 
   .hero-title {
@@ -136,7 +131,10 @@
 
 @media (max-width: 576px) {
   .hero-title {
-    font-size: 1.8rem;
+    font-size: 2rem;
+    height: 80px;
+    margin-bottom: 0;
+    margin-top: 20px;
   }
 
   .btn-articles,
@@ -147,6 +145,7 @@
   .hero-chat-container {
     width: 100%;
     padding: 1rem;
+    margin-top: 0;
   }
 
   .input-group {

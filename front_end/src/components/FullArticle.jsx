@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useNavigate } from 'react-router-dom'; // ✅ Import useNavigate
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../styles/FullArticle.css";
@@ -7,48 +7,64 @@ import "../styles/FullArticle.css";
 export const FullArticle = () => {
   const { id } = useParams();
   const [article, setArticle] = useState(null);
-  const navigate = useNavigate(); // ✅ Initialize navigate
+  const navigate = useNavigate();
 
   useEffect(() => {
     const user = JSON.parse(localStorage.getItem("user"));
     const token = user?.token;
 
     axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/article/getById/${id}`, {
-      headers: {
-        Authorization: `Bearer ${token}`
-      }
+      headers: { Authorization: `Bearer ${token}` }
     })
       .then(res => setArticle(res.data))
       .catch(err => console.error(err));
   }, [id]);
 
-  if (!article) return <p>Loading...</p>;
+  if (!article) return (
+    <div className="loading-container">
+      <div className="loading-spinner"></div>
+      <div className="loading-text">Loading Article...</div>
+    </div>
+  );
 
   return (
-    <div className="container my-4">
-      <div className="row">
-        <button className="btn btn-outline-success my-3 " onClick={() => navigate('/Article')}>
-              ← All Aricles
+    <div className="article-page">
+      <div className="article-container">
+        <button 
+          className="back-button" 
+          onClick={() => navigate('/Article')}
+          aria-label="Back to all articles"
+        >
+          ← All Articles
         </button>
-        <div className="card col-md-8 offset-md-2">
-          
-          <img src={article.image} alt={article.title} className="card-img-top" />
-          <div className="card-body">
-            
-            <h5 className="card-title">{article.title}</h5>
-            <small className="text1">{article.description}</small>
-            <hr />
-            <p className='text2'>{article.content}</p>
-            <p className="card-text">
-              <small className="text-muted">
+        
+        <div className="article-card">
+          <img 
+            src={article.image} 
+            alt={article.title} 
+            className="article-image"
+            loading="lazy"
+          />
+          <div className="article-content">
+            <h1 className="article-title">{article.title}</h1>
+            <p className="article-description">{article.description}</p>
+            <hr className="article-divider" />
+            <div className="article-text">
+              {article.content.split('\n').map((paragraph, i) => (
+                <p key={i}>{paragraph}</p>
+              ))}
+            </div>
+            <div className="article-footer">
+              <small className="publish-date">
                 Published on {new Date(article.createdAt).toLocaleDateString()}
               </small>
-            </p>
-
-            {/* ✅ Back to Home Button */}
-            <button className="btn btn-success mt-3" onClick={() => navigate('/')}>
-              ← Back to Home
-            </button>
+              <button 
+                className="home-button" 
+                onClick={() => navigate('/')}
+              >
+                ← Back to Home
+              </button>
+            </div>
           </div>
         </div>
       </div>

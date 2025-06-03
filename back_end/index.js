@@ -6,7 +6,7 @@ const axios = require('axios');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const BlogRoute = require('./routes/BlogRoute');
 const AdminRoute = require('./routes/AdminRoute');
-const rateLimit = require('express-rate-limit');
+const rateLimit = require('express-rate-limit'); 
 
 
 dotenv.config();

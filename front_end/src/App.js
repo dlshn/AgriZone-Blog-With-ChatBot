@@ -11,6 +11,7 @@ import { Routes, Route } from 'react-router-dom';
 import Footer from './components/Footer';
 import About from './components/About';
 import Contact from './components/Contact';
+import Media from './components/Media'
 import ScrollToTop from './components/ScrollToTop';
 
 
@@ -28,6 +29,8 @@ function App() {
         <Route path="/Article/:id" element={<FullArticle />} />
         <Route path="/About" element={<About />} />
         <Route path="/Contact" element={<Contact />} />
+        <Route path="/Media" element={<Media />} />
+
 
       </Routes>
     <Footer />

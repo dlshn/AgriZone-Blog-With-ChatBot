@@ -1,7 +1,7 @@
-// src/pages/Contact.js
 import React, { useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "../styles/Contact.css";
 
 const Contact = () => {
   const form = useRef();
@@ -11,15 +11,15 @@ const Contact = () => {
 
     emailjs
       .sendForm(
-         process.env.REACT_APP_EMAILJS_SERVICE_ID,     // 🔁 Replace with your actual ID
-        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,    // 🔁 Replace with your actual ID
+        process.env.REACT_APP_EMAILJS_SERVICE_ID,
+        process.env.REACT_APP_EMAILJS_TEMPLATE_ID,
         form.current,
-        process.env.REACT_APP_EMAILJS_PUBLIC_KEY      // 🔁 Replace with your actual public key
+        process.env.REACT_APP_EMAILJS_PUBLIC_KEY
       )
       .then(
         (result) => {
           alert("Message sent successfully!");
-          form.current.reset(); // clear form
+          form.current.reset();
         },
         (error) => {
           alert("Something went wrong. Please try again.");
@@ -29,34 +29,52 @@ const Contact = () => {
   };
 
   return (
-    <>
-    <div className="container my-5">
-      <div className="row justify-content-center ">
-        <div className="col-lg-8 ">
-          <h1 className="text-success text-center mb-4">Contact Us</h1>
-          <h5 className="fs-5 text-center mb-0">
+    <div className="contact-container">
+      <div className="contact-wrapper">
+        <div className="contact-header">
+          <h1 className="contact-title text-success">Contact Us</h1>
+          <p className="contact-subtitle">
             Send us your questions, feedback, or suggestions.
-          </h5>
-          
-          <form ref={form} onSubmit={sendEmail} className="p-4 shadow rounded bg-light">
-            <div className="mb-3">
-              <label className="form-label">Name</label>
-              <input type="text" name="user_name" className="form-control" required />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Email</label>
-              <input type="email" name="user_email" className="form-control" required />
-            </div>
-            <div className="mb-3">
-              <label className="form-label">Message</label>
-              <textarea name="message" rows="5" className="form-control" required></textarea>
-            </div>
-            <button type="submit" className="btn btn-success w-100">Send</button>
-          </form>
+          </p>
         </div>
+
+        <form ref={form} onSubmit={sendEmail} className="contact-form">
+          <div className="form-group">
+            <label className="form-label">Name</label>
+            <input 
+              type="text" 
+              name="user_name" 
+              className="form-control" 
+              required 
+            />
+          </div>
+          
+          <div className="form-group">
+            <label className="form-label">Email</label>
+            <input 
+              type="email" 
+              name="user_email" 
+              className="form-control" 
+              required 
+            />
+          </div>
+          
+          <div className="form-group">
+            <label className="form-label">Message</label>
+            <textarea 
+              name="message" 
+              rows="5" 
+              className="form-control" 
+              required
+            ></textarea>
+          </div>
+          
+          <button type="submit" className="submit-btn bg-success">
+            Send Message
+          </button>
+        </form>
       </div>
     </div>
-    </>
   );
 };
 
