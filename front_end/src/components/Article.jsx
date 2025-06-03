@@ -3,12 +3,11 @@ import axios from 'axios';
 import "../styles/Article.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Link } from 'react-router-dom';
-import { MdScreenSearchDesktop } from "react-icons/md";
 
 export const Article = () => {
   const [articles, setArticles] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-  const [visibleCount, setVisibleCount] = useState(12); // Start with 12 articles
+  const [visibleCount, setVisibleCount] = useState(12);
 
   useEffect(() => {
     axios.get(`${process.env.REACT_APP_API_BASE_URL}/api/article/getAll`)
@@ -29,22 +28,21 @@ export const Article = () => {
   const visibleArticles = filteredArticles.slice(0, visibleCount);
 
   return (
-    <div className="container">
-      <div className="row p-4">
+    <div className="container article-container"> {/* Added article-container class */}
+      <div className="row p-4 mt-4 article">
         <h2 className='text-success text-center my-4'>Latest Articles</h2>
         <div className='d-flex justify-content-center align-items-center mb-4'>
-        <MdScreenSearchDesktop className='search-icon mx-3 fs-1 text-success ' />
-        <input
-          type="text"
-          placeholder= "Search articles..."
-          className="form-control border border-success"
-          value={searchTerm}
-          onChange={(e) => setSearchTerm(e.target.value)}
-        />
+          <input
+            type="text"
+            placeholder="Search articles..."
+            className="form-control border border-success"
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+          />
         </div>
 
         {filteredArticles.length === 0 ? (
-          <p className='text-center text-success'>No articles found.</p>
+          <p className='text-center text-success'>No articles found.</p> 
         ) : (
           visibleArticles.map((article, index) => (
             <div key={index} className="shadow-sm col-12 col-md-4 col-lg-3 mb-4 p-2">
@@ -53,8 +51,7 @@ export const Article = () => {
                 <div className="card-body d-flex flex-column justify-content-center">
                   <h5 className="card-title">{article.title}</h5>
                   <small className="description mb-0 border border-success">{article.description}</small>
-                  <hr className='border border-success'/>
-                  <p className='card-text content mt-0'>{article.content}</p>
+                  <p className='card-text content mt-2'>{article.content}</p>
                   <Link to={`/article/${article._id}`} className="btn btn-success">Read More</Link>
                   
                   <p className="card-text mt-2">
@@ -66,7 +63,6 @@ export const Article = () => {
           ))
         )}
 
-        {/* See More Button */}
         {visibleCount < filteredArticles.length && (
           <div className="text-center mt-3">
             <button
